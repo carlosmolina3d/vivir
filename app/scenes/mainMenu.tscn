@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/mainMenu.gd" type="Script" id=1]
+[ext_resource path="res://importedAssets/originalJoes/survivorSecurity.png" type="Texture" id=2]
+[ext_resource path="res://importedAssets/originalJoes/P226.png" type="Texture" id=3]
+[ext_resource path="res://importedAssets/originalJoes/survivorMedic.png" type="Texture" id=4]
+[ext_resource path="res://importedAssets/originalJoes/hunter.png" type="Texture" id=5]
+[ext_resource path="res://importedAssets/originalJoes/alienYoung.png" type="Texture" id=6]
+[ext_resource path="res://fonts/ralewayMed.tres" type="DynamicFont" id=7]
+
+[node name="mainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1311.5, 783.075 )
+rotation = 2.79532
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 1331.85, 659.545 )
+rotation = 2.79532
+scale = Vector2( 0.0410217, 0.0410217 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 955.302, 456.067 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 1557.77, 460.807 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 969.306, 308.578 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 1298.76, 105.574 )
+scale = Vector2( 0.0641252, 0.0641252 )
+texture = ExtResource( 6 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 1067.1, 148.414 )
+scale = Vector2( 0.0641252, 0.0641252 )
+texture = ExtResource( 6 )
+
+[node name="vbox" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -178.5
+margin_right = 394.0
+margin_bottom = 178.5
+custom_constants/separation = 25
+
+[node name="new" type="Label" parent="vbox"]
+margin_right = 374.0
+margin_bottom = 76.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "New Game"
+uppercase = true
+
+[node name="load" type="Label" parent="vbox"]
+margin_top = 101.0
+margin_right = 374.0
+margin_bottom = 177.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Load Game"
+uppercase = true
+
+[node name="credits" type="Label" parent="vbox"]
+margin_top = 202.0
+margin_right = 374.0
+margin_bottom = 278.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Credits"
+uppercase = true
+
+[node name="info" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 20.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 7 )
+text = "Vivir version 0.1 Alphasauce"
+align = 1
+[connection signal="mouse_entered" from="vbox/new" to="." method="_on_new_mouse_entered"]
+[connection signal="mouse_exited" from="vbox/new" to="." method="_on_new_mouse_exited"]
+[connection signal="mouse_entered" from="vbox/load" to="." method="_on_load_mouse_entered"]
+[connection signal="mouse_exited" from="vbox/load" to="." method="_on_load_mouse_exited"]
+[connection signal="mouse_entered" from="vbox/credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="vbox/credits" to="." method="_on_credits_mouse_exited"]

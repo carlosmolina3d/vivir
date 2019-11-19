@@ -1,0 +1,2 @@
+build all svg @ 64 * 64
+Scale survivor 2x @ export time
