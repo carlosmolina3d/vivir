@@ -1,17 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scenes/mainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scripts/mainMenu.gd" type="Script" id=1]
 [ext_resource path="res://importedAssets/originalJoes/survivorSecurity.png" type="Texture" id=2]
 [ext_resource path="res://importedAssets/originalJoes/P226.png" type="Texture" id=3]
 [ext_resource path="res://importedAssets/originalJoes/survivorMedic.png" type="Texture" id=4]
 [ext_resource path="res://importedAssets/originalJoes/hunter.png" type="Texture" id=5]
 [ext_resource path="res://importedAssets/originalJoes/alienYoung.png" type="Texture" id=6]
 [ext_resource path="res://fonts/ralewayMed.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scenes/alienYoung.tscn" type="PackedScene" id=8]
+[ext_resource path="res://importedAssets/png/dockter.png" type="Texture" id=9]
 
 [node name="mainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -24,6 +29,96 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
+
+[node name="MenuBox" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 1880.0
+margin_bottom = 1040.0
+custom_constants/separation = 25
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameBox" type="HBoxContainer" parent="MarginContainer/MenuBox"]
+margin_top = 330.0
+margin_right = 1880.0
+margin_bottom = 406.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newGame" type="Button" parent="MarginContainer/MenuBox/NewGameBox"]
+margin_right = 64.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 64, 64 )
+disabled = true
+
+[node name="new" type="Label" parent="MarginContainer/MenuBox/NewGameBox"]
+margin_left = 68.0
+margin_right = 423.0
+margin_bottom = 76.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "New Game"
+uppercase = true
+
+[node name="LoadGameBox" type="HBoxContainer" parent="MarginContainer/MenuBox"]
+margin_top = 431.0
+margin_right = 1880.0
+margin_bottom = 507.0
+
+[node name="loadGame" type="Button" parent="MarginContainer/MenuBox/LoadGameBox"]
+margin_right = 64.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 64, 64 )
+disabled = true
+
+[node name="load" type="Label" parent="MarginContainer/MenuBox/LoadGameBox"]
+margin_left = 68.0
+margin_right = 442.0
+margin_bottom = 76.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Load Game"
+uppercase = true
+
+[node name="DebugBox" type="HBoxContainer" parent="MarginContainer/MenuBox"]
+margin_top = 532.0
+margin_right = 1880.0
+margin_bottom = 608.0
+
+[node name="startDebug" type="Button" parent="MarginContainer/MenuBox/DebugBox"]
+margin_right = 64.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="testLevel" type="Label" parent="MarginContainer/MenuBox/DebugBox"]
+margin_left = 68.0
+margin_right = 436.0
+margin_bottom = 76.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Test Level"
+uppercase = true
+
+[node name="CreditsBox" type="HBoxContainer" parent="MarginContainer/MenuBox"]
+margin_top = 633.0
+margin_right = 1880.0
+margin_bottom = 709.0
+
+[node name="showCredits" type="Button" parent="MarginContainer/MenuBox/CreditsBox"]
+margin_right = 64.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 64, 64 )
+
+[node name="credits" type="Label" parent="MarginContainer/MenuBox/CreditsBox"]
+margin_left = 68.0
+margin_right = 334.0
+margin_bottom = 76.0
+mouse_filter = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Credits"
+uppercase = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1311.5, 783.075 )
@@ -62,40 +157,9 @@ position = Vector2( 1067.1, 148.414 )
 scale = Vector2( 0.0641252, 0.0641252 )
 texture = ExtResource( 6 )
 
-[node name="vbox" type="VBoxContainer" parent="."]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 20.0
-margin_top = -178.5
-margin_right = 394.0
-margin_bottom = 178.5
-custom_constants/separation = 25
-
-[node name="new" type="Label" parent="vbox"]
-margin_right = 374.0
-margin_bottom = 76.0
-mouse_filter = 1
-custom_fonts/font = ExtResource( 7 )
-text = "New Game"
-uppercase = true
-
-[node name="load" type="Label" parent="vbox"]
-margin_top = 101.0
-margin_right = 374.0
-margin_bottom = 177.0
-mouse_filter = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Load Game"
-uppercase = true
-
-[node name="credits" type="Label" parent="vbox"]
-margin_top = 202.0
-margin_right = 374.0
-margin_bottom = 278.0
-mouse_filter = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Credits"
-uppercase = true
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 1598.93, 725.609 )
+texture = ExtResource( 9 )
 
 [node name="info" type="Label" parent="."]
 anchor_right = 1.0
@@ -104,9 +168,18 @@ margin_bottom = 14.0
 custom_fonts/font = ExtResource( 7 )
 text = "Vivir version 0.1 Alphasauce"
 align = 1
-[connection signal="mouse_entered" from="vbox/new" to="." method="_on_new_mouse_entered"]
-[connection signal="mouse_exited" from="vbox/new" to="." method="_on_new_mouse_exited"]
-[connection signal="mouse_entered" from="vbox/load" to="." method="_on_load_mouse_entered"]
-[connection signal="mouse_exited" from="vbox/load" to="." method="_on_load_mouse_exited"]
-[connection signal="mouse_entered" from="vbox/credits" to="." method="_on_credits_mouse_entered"]
-[connection signal="mouse_exited" from="vbox/credits" to="." method="_on_credits_mouse_exited"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="alienYoung" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1735.84, -119.583 )
+[connection signal="mouse_entered" from="MarginContainer/MenuBox/NewGameBox/new" to="." method="_on_new_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MenuBox/NewGameBox/new" to="." method="_on_new_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/MenuBox/LoadGameBox/load" to="." method="_on_load_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MenuBox/LoadGameBox/load" to="." method="_on_load_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/MenuBox/DebugBox/startDebug" to="." method="_on_startDebug_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/MenuBox/DebugBox/testLevel" to="." method="_on_testLevel_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MenuBox/DebugBox/testLevel" to="." method="_on_testLevel_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer/MenuBox/CreditsBox/credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MenuBox/CreditsBox/credits" to="." method="_on_credits_mouse_exited"]
